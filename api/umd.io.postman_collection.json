@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "456f0d5f-f1fb-4805-8a8c-e95f9cc28940",
+		"name": "umd.io",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://api.umd.io/v1/courses",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7ca513ab-3967-47a1-9dd6-ecad4e8384d2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.umd.io/v1/courses",
+					"protocol": "https",
+					"host": [
+						"api",
+						"umd",
+						"io"
+					],
+					"path": [
+						"v1",
+						"courses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.umd.io/v1/courses/list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.umd.io/v1/courses/list",
+					"protocol": "https",
+					"host": [
+						"api",
+						"umd",
+						"io"
+					],
+					"path": [
+						"v1",
+						"courses",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.umd.io/v1/courses/MATH140",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ac974397-a675-4091-a9fe-7cc905100814",
+						"exec": [
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"varify number of item should be 1\", function () {",
+							"    pm.expect(jsonData.length).to.eql(1);",
+							"});",
+							"",
+							"pm.test(\"verify course_id should be MATH140\", function () {",
+							"    pm.expect(jsonData[0].course_id).to.eql(\"MATH140\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"verify core index 0 should be MS\", function () {",
+							"    pm.expect(jsonData[0].core[0]).to.eql(\"MS\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"verify sections size should be 41\", function () {",
+							"    pm.expect(jsonData[0].sections.length).to.eql(40);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.umd.io/v1/courses/MATH140",
+					"protocol": "https",
+					"host": [
+						"api",
+						"umd",
+						"io"
+					],
+					"path": [
+						"v1",
+						"courses",
+						"MATH140"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

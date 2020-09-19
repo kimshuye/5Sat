@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20200912 15:31:17.145" generator="Robot 3.2.2.dev1 (Python 2.7.18rc1 on linux2)">
+<suite source="/home/sun/projectdev/5sat/ui/google.robot" id="s1" name="Google">
+<test id="s1-t1" name="ค้นหาด้วยคำว่า ลุงพล ต้องเจอคำว่า ป้าแต๋น และเจอคำว่า บ้านกกกอก">
+<kw name="เข้า Google">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200912 15:31:17.227" level="INFO">Opening browser 'Chrome' to base url 'https://google.com'.</msg>
+<status status="PASS" endtime="20200912 15:31:19.557" starttime="20200912 15:31:17.227"></status>
+</kw>
+<status status="PASS" endtime="20200912 15:31:19.557" starttime="20200912 15:31:17.226"></status>
+</kw>
+<kw name="พิมพ์คำค้นหาว่า ${find_word}">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=q</arg>
+<arg>${find_word}</arg>
+</arguments>
+<msg timestamp="20200912 15:31:19.558" level="INFO">Typing text 'ลุงพล' into text field 'name=q'.</msg>
+<status status="PASS" endtime="20200912 15:31:19.625" starttime="20200912 15:31:19.558"></status>
+</kw>
+<status status="PASS" endtime="20200912 15:31:19.625" starttime="20200912 15:31:19.557"></status>
+</kw>
+<kw name="กดปุ่มค้นหา">
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>name=q</arg>
+<arg>ENTER</arg>
+</arguments>
+<msg timestamp="20200912 15:31:19.626" level="INFO">Sending key(s) (u'ENTER',) to name=q element.</msg>
+<msg timestamp="20200912 15:31:19.661" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20200912 15:31:19.661" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" endtime="20200912 15:31:20.317" starttime="20200912 15:31:19.626"></status>
+</kw>
+<status status="PASS" endtime="20200912 15:31:20.317" starttime="20200912 15:31:19.625"></status>
+</kw>
+<kw name="หาคำว่า ${result1} และ ${result2} จากการค้นหา">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>${result1}</arg>
+</arguments>
+<msg timestamp="20200912 15:31:20.336" level="INFO">Current page contains text 'ป้าแต๋น'.</msg>
+<status status="PASS" endtime="20200912 15:31:20.336" starttime="20200912 15:31:20.318"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>${result2}</arg>
+</arguments>
+<msg timestamp="20200912 15:31:20.353" level="INFO">Current page contains text 'บ้านกกกอก'.</msg>
+<status status="PASS" endtime="20200912 15:31:20.353" starttime="20200912 15:31:20.336"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20200912 15:31:20.410" starttime="20200912 15:31:20.353"></status>
+</kw>
+<status status="PASS" endtime="20200912 15:31:20.410" starttime="20200912 15:31:20.317"></status>
+</kw>
+<status status="PASS" endtime="20200912 15:31:20.410" critical="yes" starttime="20200912 15:31:17.224"></status>
+</test>
+<doc>Simple example using SeleniumLibrary.</doc>
+<status status="PASS" endtime="20200912 15:31:20.412" starttime="20200912 15:31:17.146"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Google" pass="1">Google</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
